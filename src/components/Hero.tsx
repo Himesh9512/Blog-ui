@@ -14,6 +14,7 @@ const Hero = ({ children }: HeroProps) => {
 			sx={{
 				backgroundImage: `url(${heroImage})`,
 				backgroundSize: "cover",
+				backgroundRepeat: "no-repeat",
 			}}>
 			{children}
 		</Box>

@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
 export default function Header() {
+	const iconSize = window.innerWidth >= 380 ? "3rem" : "2rem";
 	return (
 		<AppBar position="static" color="primary">
 			<Box
@@ -22,7 +23,7 @@ export default function Header() {
 				</Typography>
 				<Box marginX={5}>
 					<Link href="https://github.com/Himesh9512" color="inherit">
-						<GitHub color="inherit" />
+						<GitHub color="inherit" sx={{ fontSize: iconSize }} />
 					</Link>
 				</Box>
 			</Box>
