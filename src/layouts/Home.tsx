@@ -1,7 +1,9 @@
 import Box from "@mui/material/Box";
 import Hero from "../components/Hero";
 import Typography from "@mui/material/Typography";
+import PostsCatalog from "../components/PostsCatalog";
 
+import { posts } from "../util/data";
 const Home = () => {
 	return (
 		<>
@@ -18,6 +20,20 @@ const Home = () => {
 					</Typography>
 				</Box>
 			</Hero>
+			<Box component="div" sx={{ backgroundColor: "black" }}>
+				<Typography
+					variant="body1"
+					fontSize={{ xs: "2rem", sm: "2rem", md: "3rem" }}
+					fontWeight="bold"
+					component="div"
+					color="secondary"
+					textAlign="center">
+					BLOGS
+				</Typography>
+			</Box>
+			<Box component="div" paddingY={5}>
+				<PostsCatalog posts={posts}></PostsCatalog>
+			</Box>
 		</>
 	);
 };
