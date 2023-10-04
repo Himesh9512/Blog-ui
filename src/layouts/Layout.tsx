@@ -4,6 +4,7 @@ import Header from "../components/Header";
 interface LayoutProps {
 	children: JSX.Element;
 }
+
 const Layout = ({ children }: LayoutProps) => {
 	return (
 		<>
