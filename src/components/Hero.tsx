@@ -10,7 +10,7 @@ const Hero = ({ children }: HeroProps) => {
 	return (
 		<Box
 			width="100%"
-			height={{ xs: "40vh", sm: "70vh", md: "80vh" }}
+			height={{ xs: "40vh", sm: "50vh", md: "80vh" }}
 			sx={{
 				backgroundImage: `url(${heroImage})`,
 				backgroundSize: "cover",

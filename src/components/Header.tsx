@@ -9,7 +9,7 @@ export default function Header() {
 	return (
 		<AppBar position="static" color="primary">
 			<Box
-				padding={2}
+				padding={1}
 				display="flex"
 				justifyContent="space-between"
 				alignItems="center"
