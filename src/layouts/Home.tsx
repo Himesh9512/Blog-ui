@@ -11,7 +11,7 @@ const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:3000/api/posts")
+			.get("https://blog-api-qede.onrender.com/api/posts")
 			.then((res) => {
 				setPosts(res.data);
 			})
