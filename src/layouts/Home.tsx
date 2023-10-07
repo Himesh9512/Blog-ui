@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
+
 import Box from "@mui/material/Box";
 import Hero from "../components/Hero";
 import Typography from "@mui/material/Typography";
 import PostsCatalog from "../components/PostsCatalog";
-import { useEffect, useState } from "react";
 
 import axios from "axios";
 const Home = () => {

@@ -1,7 +1,9 @@
-import Grid from "@mui/material/Grid";
-import { Post } from "../util/types";
 import PostCard from "./PostCard";
+
+import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+
+import { Post } from "../util/types";
 
 interface PostsCatalogProps {
 	posts: Post[];

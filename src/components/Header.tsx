@@ -4,8 +4,9 @@ import GitHub from "@mui/icons-material/GitHub";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
-export default function Header() {
+const Header = () => {
 	const iconSize = window.innerWidth >= 380 ? "3rem" : "2rem";
+
 	return (
 		<AppBar position="static" color="primary">
 			<Box
@@ -29,4 +30,6 @@ export default function Header() {
 			</Box>
 		</AppBar>
 	);
-}
+};
+
+export default Header;

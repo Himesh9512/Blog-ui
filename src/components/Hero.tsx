@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+
 import HeroDesktopImage from "../assets/hero-desktop.jpg";
 import HeroMobileImage from "../assets/hero-mobile.jpg";
 
@@ -7,6 +8,7 @@ interface HeroProps {
 }
 const Hero = ({ children }: HeroProps) => {
 	const heroImage = window.innerWidth >= 650 ? HeroDesktopImage : HeroMobileImage;
+
 	return (
 		<Box
 			width="100%"

@@ -1,12 +1,14 @@
 import Box from "@mui/material/Box";
-import { Comment } from "../util/types";
 import Typography from "@mui/material/Typography";
+
+import { Comment } from "../util/types";
 
 interface PostCommentProps {
 	comment: Comment;
 }
 const PostComment = ({ comment }: PostCommentProps) => {
 	const { username, text, date_formatted } = comment;
+
 	return (
 		<Box borderLeft="4px solid black" margin={3} marginLeft={0} paddingLeft={3}>
 			<Typography component="div" variant="caption">

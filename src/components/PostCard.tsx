@@ -1,6 +1,5 @@
 import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
-import { Post } from "../util/types";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
@@ -8,12 +7,15 @@ import Button from "@mui/material/Button";
 
 import { Link } from "react-router-dom";
 
+import { Post } from "../util/types";
+
 interface PostCardProps {
 	post: Post;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
 	const { id, title, date_formatted } = post;
+
 	return (
 		<Paper elevation={3} sx={{ width: "100%" }}>
 			<Card>

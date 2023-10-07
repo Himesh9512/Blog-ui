@@ -1,14 +1,16 @@
-import { Link, useParams } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import axios from "axios";
+
+import CommentForm from "../components/CommentForm";
+import PostComment from "../components/PostComment";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import CommentForm from "../components/CommentForm";
-import PostComment from "../components/PostComment";
+
 import { Comment, Post as PostInterface } from "../util/types";
 
 const Post = () => {
@@ -16,6 +18,8 @@ const Post = () => {
 
 	const [post, setPost] = useState<PostInterface>();
 	const [comments, setComments] = useState<Comment[]>();
+	const [username, setUsername] = useState<string>("");
+	const [text, setText] = useState<string>("");
 
 	useEffect(() => {
 		axios
@@ -35,9 +39,6 @@ const Post = () => {
 				console.log(err);
 			});
 	}, [postId]);
-
-	const [username, setUsername] = useState<string>("");
-	const [text, setText] = useState<string>("");
 
 	const handleUsernameOnInput = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
