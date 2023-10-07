@@ -2,9 +2,23 @@ import Box from "@mui/material/Box";
 import Hero from "../components/Hero";
 import Typography from "@mui/material/Typography";
 import PostsCatalog from "../components/PostsCatalog";
+import { useEffect, useState } from "react";
 
-import { posts } from "../util/data";
+import axios from "axios";
 const Home = () => {
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:3000/api/posts")
+			.then((res) => {
+				setPosts(res.data);
+			})
+			.catch((err) => {
+				console.log("err: ", err);
+			});
+	}, []);
+
 	return (
 		<>
 			<Hero>

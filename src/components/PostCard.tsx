@@ -7,18 +7,19 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
 import { Link } from "react-router-dom";
+
 interface PostCardProps {
 	post: Post;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
-	const { id, title, date } = post;
+	const { id, title, date_formatted } = post;
 	return (
 		<Paper elevation={3} sx={{ width: "100%" }}>
 			<Card>
 				<CardContent>
 					<Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-						{date}
+						{date_formatted}
 					</Typography>
 					<Typography variant="h3" component="div">
 						{title}
