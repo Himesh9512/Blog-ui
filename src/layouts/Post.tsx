@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
-import { comments, posts } from "../util/data";
+import axios from "axios";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,10 +9,32 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CommentForm from "../components/CommentForm";
 import PostComment from "../components/PostComment";
+import { Comment, Post as PostInterface } from "../util/types";
 
 const Post = () => {
 	const { postId } = useParams();
-	const post = posts.find((x) => x.id === postId);
+
+	const [post, setPost] = useState<PostInterface>();
+	const [comments, setComments] = useState<Comment[]>();
+
+	useEffect(() => {
+		axios
+			.get(`http://localhost:3000/api/posts/${postId}`)
+			.then((res) => {
+				setPost(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		axios
+			.get(`http://localhost:3000/api/posts/${postId}/comments`)
+			.then((res) => {
+				setComments(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [postId]);
 
 	const [username, setUsername] = useState<string>("");
 	const [text, setText] = useState<string>("");
@@ -22,11 +44,28 @@ const Post = () => {
 
 		setUsername(value);
 	};
+
 	const handleTextOnInput = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 
 		setText(value);
 	};
+
+	const handleOnSubmit = () => {
+		axios({
+			method: "POST",
+			url: `http://localhost:3000/api/posts/${postId}/comments`,
+			data: {
+				username: username,
+				text: text,
+			},
+		})
+			.then((res) => {
+				console.log("Comment Added: ", res.data);
+			})
+			.catch((err) => console.log("Erro while fetching Comments: ", err));
+	};
+
 	return (
 		<>
 			<Container>
@@ -39,7 +78,7 @@ const Post = () => {
 				</Box>
 				<Box component="div" paddingY={4}>
 					<Typography variant="body2" component="span">
-						{post?.date}
+						{post?.date_formatted}
 					</Typography>
 					<Typography variant="h2" component="h1" fontWeight={600}>
 						{post?.title}
@@ -58,18 +97,11 @@ const Post = () => {
 					text={text}
 					handleUsernameOnInput={handleUsernameOnInput}
 					handleTextOnInput={handleTextOnInput}
+					handleOnSubmit={handleOnSubmit}
 				/>
 				<Box>
-					{comments.map((comment, index) => {
-						return (
-							<PostComment
-								key={index}
-								id={comment.id}
-								username={comment.username}
-								text={comment.text}
-								date={comment.date}
-							/>
-						);
+					{comments?.map((comment, index) => {
+						return <PostComment key={index} comment={comment} />;
 					})}
 				</Box>
 			</Container>

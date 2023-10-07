@@ -8,6 +8,7 @@ interface CommentFormProps {
 	text: string;
 	handleUsernameOnInput: (e: ChangeEvent<HTMLInputElement>) => void;
 	handleTextOnInput: (e: ChangeEvent<HTMLInputElement>) => void;
+	handleOnSubmit: () => void;
 }
 
 const CommentForm = ({
@@ -15,9 +16,10 @@ const CommentForm = ({
 	text,
 	handleUsernameOnInput,
 	handleTextOnInput,
+	handleOnSubmit,
 }: CommentFormProps) => {
 	return (
-		<Box component="form" method="post" action="#">
+		<Box component="form" onSubmit={handleOnSubmit}>
 			<TextField
 				fullWidth
 				placeholder="Himesh"

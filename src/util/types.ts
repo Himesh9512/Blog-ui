@@ -11,4 +11,5 @@ export interface Comment {
 	username: string;
 	text: string;
 	date: string;
+	date_formatted: string;
 }
