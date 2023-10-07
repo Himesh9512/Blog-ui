@@ -1,13 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { ChangeEvent, useState } from "react";
 
-import { posts } from "../util/data";
+import { comments, posts } from "../util/data";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import CommentForm from "../components/CommentForm";
+import PostComment from "../components/PostComment";
 
 const Post = () => {
 	const { postId } = useParams();
@@ -58,6 +59,19 @@ const Post = () => {
 					handleUsernameOnInput={handleUsernameOnInput}
 					handleTextOnInput={handleTextOnInput}
 				/>
+				<Box>
+					{comments.map((comment, index) => {
+						return (
+							<PostComment
+								key={index}
+								id={comment.id}
+								username={comment.username}
+								text={comment.text}
+								date={comment.date}
+							/>
+						);
+					})}
+				</Box>
 			</Container>
 		</>
 	);

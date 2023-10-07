@@ -13,7 +13,7 @@ const PostsCatalog = ({ posts }: PostsCatalogProps) => {
 			<Grid container spacing={{ xs: 4, md: 10 }}>
 				{posts.map((post, index) => {
 					return (
-						<Grid item key={index} xl={3}>
+						<Grid item key={index} xl={4}>
 							<PostCard post={post}></PostCard>
 						</Grid>
 					);
