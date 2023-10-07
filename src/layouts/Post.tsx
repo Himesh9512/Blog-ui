@@ -23,7 +23,7 @@ const Post = () => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:3000/api/posts/${postId}`)
+			.get(`https://blog-api-qede.onrender.com/api/posts/${postId}`)
 			.then((res) => {
 				setPost(res.data);
 			})
@@ -31,7 +31,7 @@ const Post = () => {
 				console.log(err);
 			});
 		axios
-			.get(`http://localhost:3000/api/posts/${postId}/comments`)
+			.get(`https://blog-api-qede.onrender.com/api/posts/${postId}/comments`)
 			.then((res) => {
 				setComments(res.data);
 			})
@@ -55,11 +55,12 @@ const Post = () => {
 	const handleOnSubmit = () => {
 		axios({
 			method: "POST",
-			url: `http://localhost:3000/api/posts/${postId}/comments`,
+			url: `https://blog-api-qede.onrender.com/api/posts/${postId}/comments`,
 			data: {
 				username: username,
 				text: text,
 			},
+			headers: { "Content-Type": "application/json" },
 		})
 			.then((res) => {
 				console.log("Comment Added: ", res.data);
