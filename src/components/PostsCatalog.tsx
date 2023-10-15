@@ -12,7 +12,7 @@ interface PostsCatalogProps {
 const PostsCatalog = ({ posts }: PostsCatalogProps) => {
 	return (
 		<Container>
-			<Grid container spacing={{ xs: 4, md: 10 }}>
+			<Grid container justifyContent="center" spacing={{ xs: 4, md: 10 }}>
 				{posts.map((post, index) => {
 					return (
 						<Grid item key={index} xs={12} sm={6} xl={4} height="100%">
