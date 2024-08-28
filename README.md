@@ -1,5 +1,5 @@
 
-# Members-only
+# Blog UI
 
 This project is a blog app that lets users read blogs. Users can also comment on other posts. The app is built with the MERN stack: MongoDB, Express, React, and Node.js.
 
